@@ -352,6 +352,26 @@ button:hover {
     }
 
 }
+.white_run_8fps {
+    position: fixed;
+    width: 80px;
+    bottom: 10px;
+    left: -100px;
+    z-index: 10;
+    pointer-events: none;
+    animation: walkAcross 12s linear infinite;
+}
+
+@keyframes walkAcross {
+    from {
+        left: -100px;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
 .meng_lari {
     position: fixed;
     width: 80px;
@@ -373,8 +393,4 @@ button:hover {
 }
 .white_run_8fps {
     animation-delay: -1.5s;
-}
-    to {
-        left: 100%;
-    }
 }
