@@ -1,0 +1,373 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --matcha: #7c9560;
+    --dark-matcha: #405438;
+    --cream: #f7f3e8;
+    --light-green: #dfe8cf;
+    --brown: #665b4c;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--cream);
+    color: var(--dark-matcha);
+    overflow: hidden;
+}
+
+
+/* --------------------
+   GENERAL SCREEN
+-------------------- */
+
+.screen {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.screen.active {
+    display: flex;
+    opacity: 1;
+}
+
+
+/* --------------------
+   OPENING
+-------------------- */
+
+#opening {
+    background:
+        radial-gradient(circle at 20% 20%, #e8efd9 0%, transparent 25%),
+        radial-gradient(circle at 80% 80%, #dfe8cf 0%, transparent 25%),
+        var(--cream);
+}
+
+.opening-content {
+    text-align: center;
+    max-width: 600px;
+}
+
+.little-cat {
+    font-size: 80px;
+    margin-bottom: 20px;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+.small-text {
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(42px, 8vw, 72px);
+    margin-bottom: 20px;
+}
+
+.description {
+    color: var(--brown);
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+button {
+    border: none;
+    background: var(--dark-matcha);
+    color: white;
+
+    padding: 15px 25px;
+
+    border-radius: 50px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    background: var(--matcha);
+}
+
+
+/* --------------------
+   CAT GAME
+-------------------- */
+
+#catGame {
+    flex-direction: column;
+    background: var(--light-green);
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.game-header p {
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.game-header span {
+    font-size: 14px;
+    color: var(--brown);
+}
+
+#gameArea {
+    position: relative;
+
+    width: min(900px, 90vw);
+    height: min(600px, 65vh);
+
+    border-radius: 30px;
+
+    background:
+        radial-gradient(circle at 20% 30%, #edf2e3 0%, transparent 20%),
+        radial-gradient(circle at 80% 70%, #edf2e3 0%, transparent 20%),
+        var(--cream);
+
+    overflow: hidden;
+
+    box-shadow: 0 20px 60px rgba(64, 84, 56, 0.12);
+}
+
+#cat {
+    position: absolute;
+
+    font-size: 70px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    cursor: pointer;
+
+    user-select: none;
+
+    transition:
+        left 0.35s cubic-bezier(.2,.8,.2,1),
+        top 0.35s cubic-bezier(.2,.8,.2,1),
+        transform 0.2s ease;
+}
+
+#cat:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+
+/* --------------------
+   CAUGHT
+-------------------- */
+
+#caught {
+    background: var(--cream);
+}
+
+.caught-content {
+    text-align: center;
+}
+
+.big-cat {
+    font-size: 100px;
+
+    animation:
+        bounce 1s ease infinite alternate;
+
+    margin-bottom: 20px;
+}
+
+.caught-content h1 {
+    margin-bottom: 10px;
+}
+
+.caught-content p {
+    color: var(--brown);
+    line-height: 1.7;
+}
+
+.caught-content button {
+    margin-top: 30px;
+}
+
+
+/* --------------------
+   LETTER
+-------------------- */
+
+#letter {
+    background:
+        radial-gradient(circle at 15% 20%, #e4edd4 0%, transparent 20%),
+        radial-gradient(circle at 85% 80%, #e4edd4 0%, transparent 20%),
+        var(--cream);
+
+    overflow-y: auto;
+}
+
+.letter-wrapper {
+    width: min(650px, 90vw);
+    text-align: center;
+}
+
+.envelope {
+    font-size: 65px;
+    margin-bottom: 10px;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+.letter {
+    background: rgba(255,255,255,0.75);
+
+    padding: 50px 45px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 20px 60px rgba(64, 84, 56, 0.12);
+
+    text-align: left;
+}
+
+.letter-small {
+    text-align: center;
+
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+
+    color: var(--matcha);
+}
+
+.letter h1 {
+    text-align: center;
+    font-size: clamp(38px, 7vw, 60px);
+}
+
+.letter p {
+    color: var(--brown);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.letter .ending {
+    color: var(--dark-matcha);
+    font-weight: 700;
+    text-align: center;
+
+    margin-top: 35px;
+}
+
+.signature {
+    text-align: center;
+    font-size: 13px;
+    opacity: 0.7;
+    margin-top: 35px;
+}
+
+
+/* --------------------
+   ANIMATIONS
+-------------------- */
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+@keyframes bounce {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+/* --------------------
+   MOBILE
+-------------------- */
+
+@media (max-width: 600px) {
+
+    .screen {
+        padding: 20px;
+    }
+
+    .little-cat {
+        font-size: 65px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    #gameArea {
+        width: 94vw;
+        height: 60vh;
+        border-radius: 20px;
+    }
+
+    #cat {
+        font-size: 60px;
+    }
+
+    .letter {
+        padding: 35px 25px;
+    }
+
+}
+<img src="meng lari.gif" {
+    position: fixed;
+    width: 80px;
+    bottom: 10px;
+    left: -100px;
+    z-index: 10;
+    pointer-events: none;
+    animation: walkAcross 12s linear infinite;
+}
+
+@keyframes walkAcross {
+    from {
+        left: -100px;
+    }
+
+    to {
+        left: 100%;
+    }
+}
