@@ -352,7 +352,7 @@ button:hover {
     }
 
 }
-<img src="meng lari.gif" {
+.meng_lari {
     position: fixed;
     width: 80px;
     bottom: 10px;
@@ -367,6 +367,13 @@ button:hover {
         left: -100px;
     }
 
+    to {
+        left: 100%;
+    }
+}
+.white_run_8fps {
+    animation-delay: -1.5s;
+}
     to {
         left: 100%;
     }
